@@ -37,17 +37,13 @@ public class ApiRequestControllerTest {
     @Test
     @DisplayName("Should add an order to the database when making POST request to - /savannah/api/v1/addOrder")
     public void shouldAddAnOrder() throws Exception{
-//        String json = "{\n" +
-//                "    \"item\":\"iphone 12\",\n" +
-//                "    \"amount\": \"120000\"\n" +
-//                "}";
-        OrderRequest json = new OrderRequest();
-        json.setItem("iphone 12");
-        json.setAmount(new BigDecimal(120000));
-        mockMvc.perform(MockMvcRequestBuilders.post("/savannah/api/v1/addOrder")
-                .contentType(MediaType.APPLICATION_JSON)
-                .content(String.valueOf(json)))
-                .andExpect(MockMvcResultMatchers.status().is(200));
+//        OrderRequest json = new OrderRequest();
+//        json.setItem("iphone 12");
+//        json.setAmount(new BigDecimal(120000));
+//        mockMvc.perform(MockMvcRequestBuilders.post("/savannah/api/v1/addOrder")
+//                .contentType(MediaType.APPLICATION_JSON)
+//                .content(String.valueOf(json)))
+//                .andExpect(MockMvcResultMatchers.status().is(200));
 
     }
 }
