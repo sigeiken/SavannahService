@@ -1,6 +1,6 @@
-
-# MySQL
-
+server:
+  contextPath: /SavannahService
+# MySQ
 datasource:
   url: jdbc:mysql://localhost:3306/SAVANNAH
   username: root
