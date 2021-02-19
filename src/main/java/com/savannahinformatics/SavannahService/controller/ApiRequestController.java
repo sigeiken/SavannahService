@@ -18,7 +18,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 @RestController
-@RequestMapping("/savannah/api/v1/")
+@RequestMapping("/api/v1/")
 public class ApiRequestController {
 
     @Autowired
