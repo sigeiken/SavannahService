@@ -8,8 +8,10 @@ public class CustomerSignUpRequest implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    @JsonProperty("name")
-    private String name;
+    @JsonProperty("firstName")
+    private String firstName;
+    @JsonProperty("lastName")
+    private String lastName;
     @JsonProperty("phone")
     private String phone;
     @JsonProperty("email")
@@ -20,12 +22,20 @@ public class CustomerSignUpRequest implements Serializable {
     public CustomerSignUpRequest() {
     }
 
-    public String getName() {
-        return name;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
     public String getPhone() {
@@ -54,8 +64,9 @@ public class CustomerSignUpRequest implements Serializable {
 
     @Override
     public String toString() {
-        return "CustomerRequest{" +
-                "name='" + name + '\'' +
+        return "CustomerSignUpRequest{" +
+                "firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
                 ", phone='" + phone + '\'' +
                 ", email='" + email + '\'' +
                 ", password='" + password + '\'' +

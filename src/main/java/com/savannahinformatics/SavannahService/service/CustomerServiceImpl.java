@@ -23,7 +23,8 @@ public class CustomerServiceImpl implements CustomerService{
     public void addCustomer(CustomerSignUpRequest customerRequest) throws Exception {
         try {
             Customer customer = new Customer();
-            customer.setName(customerRequest.getName());
+            customer.setFirstName(customerRequest.getFirstName());
+            customer.setLastName(customerRequest.getLastName());
             customer.setPhone(customerRequest.getPhone());
             customer.setCode(generateCustomerCode());
             customer.setCreatedAt(Instant.now());

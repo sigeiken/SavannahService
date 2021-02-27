@@ -42,7 +42,7 @@ public class MessageServiceImpl implements MessageService{
         //Call Africa's talking
         String userName = environment.getRequiredProperty("africastalking.username");
         String apiKey = environment.getRequiredProperty("africastalking.apikey");
-        LOGGER.info("Africa's talking username {} Apikey {}", userName, apiKey);
+
         AfricasTalking.initialize(userName, apiKey);
         /* Get the SMS service */
         SmsService sms = AfricasTalking.getService(AfricasTalking.SERVICE_SMS);

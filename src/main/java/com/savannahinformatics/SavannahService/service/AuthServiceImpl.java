@@ -45,7 +45,8 @@ public class AuthServiceImpl implements AuthService{
     public void signUp(CustomerSignUpRequest customerSignUpRequest) throws Exception {
         try {
             Customer customer = new Customer();
-            customer.setName(customerSignUpRequest.getName());
+            customer.setFirstName(customerSignUpRequest.getFirstName());
+            customer.setLastName(customerSignUpRequest.getLastName());
             customer.setEmail(customerSignUpRequest.getEmail());
             customer.setPhone(customerSignUpRequest.getPhone());
             customer.setPassword(passwordEncoder.encode(customerSignUpRequest.getPassword()));
@@ -63,10 +64,8 @@ public class AuthServiceImpl implements AuthService{
     public LoginResponse login(LoginRequest loginRequest) throws Exception {
         try {
             authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(loginRequest.getEmail(), loginRequest.getPassword()));
-
             final UserDetails userDetails = customUserDetailsService.loadUserByUsername(loginRequest.getEmail());
             final String token = jwtUtil.generateToken(userDetails);
-
             LoginResponse loginResponse = new LoginResponse();
             loginResponse.setAuthenticationToken(token);
             loginResponse.setRefreshToken(refreshTokenService.generateRefreshToken().getToken());

@@ -1,5 +1,7 @@
 package com.savannahinformatics.SavannahService.controller;
 
+import com.savannahinformatics.SavannahService.entity.Customer;
+import com.savannahinformatics.SavannahService.repository.CustomerRepository;
 import com.savannahinformatics.SavannahService.request.CustomerSignUpRequest;
 import com.savannahinformatics.SavannahService.request.LoginRequest;
 import com.savannahinformatics.SavannahService.response.LoginResponse;
@@ -13,13 +15,17 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
+import java.util.Optional;
 
 @RestController
-@RequestMapping("/api/v1/auth")
+@RequestMapping("savannah/api/v1/auth")
 public class AuthController {
 
     @Autowired
     private AuthService authService;
+
+    @Autowired
+    private CustomerRepository customerRepository;
 
     private static final Logger LOGGER = LoggerFactory.getLogger(AuthController.class);
 
@@ -27,16 +33,25 @@ public class AuthController {
     public ResponseEntity<?> signUp(@RequestBody CustomerSignUpRequest customerSignUpRequest){
         LOGGER.info("POST | /api/v1/auth/signup {}", customerSignUpRequest);
         Map<String, Object> responseMap = new LinkedHashMap<>();
-        try {
-            authService.signUp(customerSignUpRequest);
-            responseMap.put("responseCode", "00");
-            responseMap.put("responseMessage", "Success");
-            return new ResponseEntity<>(responseMap, HttpStatus.OK);
-        }catch (Exception e){
+        Optional<Customer> customerExist = customerRepository.findCustomerByEmail(customerSignUpRequest.getEmail());
+        LOGGER.info("customerExist " + customerExist.toString());
+        if (customerExist.isPresent()){
             responseMap.put("responseCode", "01");
-            responseMap.put("responseMessage", e.getMessage());
+            responseMap.put("responseMessage", "User with that email exist");
             LOGGER.info("POST | /api/v1/auth/signup responseMap= {}", responseMap);
-            return new ResponseEntity<>(responseMap, HttpStatus.OK);
+            return new ResponseEntity<>(responseMap, HttpStatus.BAD_REQUEST);
+        }else {
+            try {
+                authService.signUp(customerSignUpRequest);
+                responseMap.put("responseCode", "00");
+                responseMap.put("responseMessage", "Success");
+                return new ResponseEntity<>(responseMap, HttpStatus.OK);
+            } catch (Exception e) {
+                responseMap.put("responseCode", "01");
+                responseMap.put("responseMessage", e.getMessage());
+                LOGGER.info("POST | /api/v1/auth/signup responseMap= {}", responseMap);
+                return new ResponseEntity<>(responseMap, HttpStatus.BAD_REQUEST);
+            }
         }
     }
 
@@ -55,7 +70,7 @@ public class AuthController {
             responseMap.put("responseCode", "01");
             responseMap.put("responseMessage", e.getMessage());
             LOGGER.info("POST | /api/v1/auth/login responseMap= {}", responseMap);
-            return new ResponseEntity<>(responseMap, HttpStatus.OK);
+            return new ResponseEntity<>(responseMap, HttpStatus.BAD_REQUEST);
         }
     }
 

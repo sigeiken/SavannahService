@@ -52,7 +52,7 @@ public class OrderServiceImpl implements OrderService{
 
             //Save message to messages table
             Message message = new Message();
-            message.setMessage("Dear " + customer.getName() + ", your order has been received.");
+            message.setMessage("Dear " + customer.getFirstName() + ", your order has been received.");
             message.setRecipient(customer.getPhone());
             message.setStatus("0");
             message.setDescription("INITIATED");
