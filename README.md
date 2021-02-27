@@ -1,12 +1,12 @@
- #Backend Developer Interview
- ###Technology used
+ # Backend Developer Interview
+ ### Technology used
 - Java - Spring Boot framework
 -  MySQL Database
 - Jenkins
 - Africa’s Talking SMS
 - Twilio
 - Swagger: API Documentation
-###APIs
+### APIs
 1. http://localhost:8080/savannah/api/v1/auth/signup
 
 Sample Request
