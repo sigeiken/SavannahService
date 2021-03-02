@@ -7,7 +7,11 @@
 - Twilio
 - Swagger: API Documentation
 ### APIs
-1. http://localhost:8080/savannah/api/v1/auth/signup
+1. Customer registration 
+
+URL: http://localhost:8080/savannah/api/v1/auth/signup
+
+Method: POST
 
 Sample Request
 ```
@@ -27,7 +31,11 @@ Sample success response
 }
 ```
 
-2. http://localhost:8080/savannah/api/v1/auth/login
+2. Login
+
+URL: http://localhost:8080/savannah/api/v1/auth/login
+
+Method: POST
 
 Sample Request
 ```
@@ -51,7 +59,11 @@ Sample success response
 }
 ```
 
-3. http://localhost:8080/savannah/api/v1/addOrder
+3. Add order 
+   
+URL: http://localhost:8080/savannah/api/v1/addOrder
+
+Method: POST
 
 Sample Request
 ```

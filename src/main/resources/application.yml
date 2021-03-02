@@ -5,7 +5,9 @@ server:
 datasource:
   url: jdbc:mysql://localhost:3306/SAVANNAH
   username: root
-  password:
+  #prod
+  password: admin
+  #password:
   driverClassName: com.mysql.cj.jdbc.Driver
   maxPoolSize: 50
   connectionTimeout: 30000
