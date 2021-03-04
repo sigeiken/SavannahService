@@ -58,6 +58,6 @@ public class ApiRequestControllerTest {
 
     @Test
     public void failingTest() throws Exception{
-        assertEquals(4, 2+1);
+        assertEquals(4, 2+2);
     }
 }
