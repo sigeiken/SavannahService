@@ -1,6 +1,7 @@
 
 server:
   context-path: /savannah
+  port: 8085
 # MySQ
 datasource:
   url: jdbc:mysql://localhost:3306/SAVANNAH
