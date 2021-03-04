@@ -55,4 +55,9 @@ public class ApiRequestControllerTest {
                 .andExpect( MockMvcResultMatchers.status().is(200))
                 .andReturn();
     }
+
+//    @Test
+//    public void failingTest() throws Exception{
+//        assertEquals(4, 2+1);
+//    }
 }
