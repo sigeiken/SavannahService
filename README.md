@@ -2,6 +2,7 @@
  ### Technology used
 - Java - Spring Boot framework
 -  MySQL Database
+-  Jenkins
 - Africa’s Talking SMS
 - Swagger: API Documentation
 ### APIs

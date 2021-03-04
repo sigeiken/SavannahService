@@ -56,8 +56,8 @@ public class ApiRequestControllerTest {
                 .andReturn();
     }
 
-    @Test
-    public void failingTest() throws Exception{
-        assertEquals(4, 2+1);
-    }
+//    @Test
+//    public void failingTest() throws Exception{
+//        assertEquals(4, 2+1);
+//    }
 }
