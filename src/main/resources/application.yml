@@ -1,14 +1,11 @@
 
 server:
   context-path: /savannah
-  port: 8085
 # MySQ
 datasource:
   url: jdbc:mysql://localhost:3306/SAVANNAH
   username: root
-  #prod
-  password: admin
-  #password:
+  password:
   driverClassName: com.mysql.cj.jdbc.Driver
   maxPoolSize: 50
   connectionTimeout: 30000
